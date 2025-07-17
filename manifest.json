@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "HTML5 Universal Speed Hack PLUS",
+  "version": "3.0",
+  "description": "This is a modded version of the HTML5 Universal Speed Hack made by TheByteyear",
+
+  "icons": {
+    "162": "icon.png"
+  },
+
+  "action": {
+    "default_icon": "icon.png",
+    "default_popup": "index.html",
+    "default_title": "HTML5 Universal Speed Hack PLUS"
+  },
+
+  "permissions": [
+    "scripting",
+    "storage",
+    "activeTab"
+  ],
+  
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}
