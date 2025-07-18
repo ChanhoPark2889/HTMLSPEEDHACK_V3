@@ -197,11 +197,11 @@ function pageScript() {
   })();
 }
 
-const script = document.createElement("script");
-script.setAttribute("type", "text/javascript");
-script.textContent = `!${pageScript.toString()}()\n//# sourceURL=pageScript.js`;
-
-document.documentElement.appendChild(script);
+const script = document.createElement("script");␊
+script.setAttribute("type", "text/javascript");␊
+script.src = chrome.runtime.getURL("pageScript.js");
+script.onload = () => script.remove();
+(document.head || document.documentElement).appendChild(script);
 
 let speedConfig = {
   speed: 1.0,
